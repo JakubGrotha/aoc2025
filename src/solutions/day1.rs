@@ -1,10 +1,10 @@
-use std::fs;
+use crate::utils::input_fetcher::fetch_input_as_string;
 use std::str::FromStr;
 
-const PATH: &str = "./input/day1.txt";
+const DAY: i8 = 1;
 
 pub fn solve() {
-    let input = fs::read_to_string(PATH).expect("unable to find and open input file for day 1");
+    let input = fetch_input_as_string(DAY);
     let part_one_solution = solve_part_one(&input);
     println!("Day 1, part one: {part_one_solution}");
     let part_two_solution = solve_part_two(&input);

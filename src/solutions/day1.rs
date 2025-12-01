@@ -1,10 +1,10 @@
-use crate::utils::input_fetcher::fetch_input_as_string;
+use crate::utils::input_reader::read_input_as_string;
 use std::str::FromStr;
 
 const DAY: i8 = 1;
 
 pub fn solve() {
-    let input = fetch_input_as_string(DAY);
+    let input = read_input_as_string(DAY);
     let part_one_solution = solve_part_one(&input);
     println!("Day 1, part one: {part_one_solution}");
     let part_two_solution = solve_part_two(&input);
@@ -16,12 +16,12 @@ fn solve_part_one(input: &String) -> i32 {
     let mut idx = 50i32;
     for line in input.lines() {
         if line.starts_with("R") {
-            let value =
-                i32::from_str(&line.replace("R", "")).expect("unable to parse to i32 from string");
+            let value = i32::from_str(&line[1..])
+                .expect("unable to parse to i32 from string slice");
             idx += value;
         } else {
-            let value =
-                i32::from_str(&line.replace("L", "")).expect("unable to parse to i32 from string");
+            let value = i32::from_str(&line[1..])
+                    .expect("unable to parse to i32 from string slice");
             idx -= value;
         }
         if idx % 100 == 0 {
@@ -36,14 +36,14 @@ fn solve_part_two(input: &String) -> i32 {
     let mut idx = 50i32;
     for line in input.lines() {
         if line.starts_with("R") {
-            let value =
-                i32::from_str(&line.replace("R", "")).expect("unable to parse to i32 from string");
+            let value = i32::from_str(&line[1..])
+                .expect("unable to parse to i32 from string slice");
             let count = count(idx, value);
             counter += count;
             idx += value;
         } else {
-            let value =
-                i32::from_str(&line.replace("L", "")).expect("unable to parse to i32 from string");
+            let value = i32::from_str(&line[1..])
+                .expect("unable to parse to i32 from string slice");
             let count = count(idx, value * -1);
             counter += count;
             idx -= value;

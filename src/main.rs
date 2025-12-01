@@ -5,7 +5,7 @@ mod solutions {
 }
 
 mod utils {
-    pub mod input_fetcher;
+    pub mod input_reader;
 }
 
 fn main() {

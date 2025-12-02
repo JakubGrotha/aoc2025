@@ -1,7 +1,7 @@
 use crate::utils::input_reader::read_input_as_string;
 use std::str::FromStr;
 
-const DAY: i8 = 1;
+const DAY: u8 = 1;
 
 pub fn solve() {
     let input = read_input_as_string(DAY);
@@ -16,12 +16,12 @@ fn solve_part_one(input: &String) -> i32 {
     let mut idx = 50i32;
     for line in input.lines() {
         if line.starts_with("R") {
-            let value = i32::from_str(&line[1..])
-                .expect("unable to parse to i32 from string slice");
+            let value =
+                i32::from_str(&line[1..]).expect("unable to parse to i32 from string slice");
             idx += value;
         } else {
-            let value = i32::from_str(&line[1..])
-                    .expect("unable to parse to i32 from string slice");
+            let value =
+                i32::from_str(&line[1..]).expect("unable to parse to i32 from string slice");
             idx -= value;
         }
         if idx % 100 == 0 {
@@ -36,14 +36,14 @@ fn solve_part_two(input: &String) -> i32 {
     let mut idx = 50i32;
     for line in input.lines() {
         if line.starts_with("R") {
-            let value = i32::from_str(&line[1..])
-                .expect("unable to parse to i32 from string slice");
+            let value =
+                i32::from_str(&line[1..]).expect("unable to parse to i32 from string slice");
             let count = count(idx, value);
             counter += count;
             idx += value;
         } else {
-            let value = i32::from_str(&line[1..])
-                .expect("unable to parse to i32 from string slice");
+            let value =
+                i32::from_str(&line[1..]).expect("unable to parse to i32 from string slice");
             let count = count(idx, value * -1);
             counter += count;
             idx -= value;
@@ -74,7 +74,8 @@ fn count(idx: i32, value: i32) -> i32 {
 mod tests {
     use super::*;
 
-    const INPUT: &str = "L68
+    const INPUT: &str = "\
+L68
 L30
 R48
 L5

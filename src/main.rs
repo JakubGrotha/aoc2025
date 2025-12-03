@@ -1,11 +1,11 @@
-use crate::solutions::{day1, day2};
+use crate::solutions::{day1, day2, day3};
 use std::env::args;
-use std::process;
 use std::str::FromStr;
 
 mod solutions {
     pub mod day1;
     pub mod day2;
+    pub mod day3;
 }
 
 mod utils {
@@ -22,7 +22,7 @@ fn main() {
     match exercise_number {
         1 => day1::solve(),
         2 => day2::solve(),
+        3 => day3::solve(),
         _ => panic!("invalid puzzle number!"),
     };
-    process::exit(0);
 }

@@ -1,4 +1,4 @@
-use crate::solutions::{day1, day2, day3, day4, day5};
+use crate::solutions::{day1, day2, day3, day4, day5, day6};
 use std::env::args;
 use std::str::FromStr;
 
@@ -8,6 +8,7 @@ mod solutions {
     pub mod day3;
     pub mod day4;
     pub mod day5;
+    pub mod day6;
 }
 
 mod utils {
@@ -27,6 +28,7 @@ fn main() {
         3 => day3::solve(),
         4 => day4::solve(),
         5 => day5::solve(),
+        6 => day6::solve(),
         _ => panic!("invalid puzzle number!"),
     };
 }
